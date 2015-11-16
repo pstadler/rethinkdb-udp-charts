@@ -18,5 +18,5 @@ $ npm start
 # Open http://localhost:8080 in a browser
 
 # Push metrics to the UDP endpoint, e.g.
-$ echo "some_metric=12.34" | nc -u -w0 localhost 8888
+$ echo "some_metric=12.34" | nc -u -w0 127.0.0.1 8888
 ```
