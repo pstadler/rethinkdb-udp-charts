@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/epoch/0.8.4/css/epoch.min.css">
+</head>
+<body>
+  <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.8/d3.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/epoch/0.8.4/js/epoch.js"></script>
+  <script src="/socket.io/socket.io.js"></script>
+
+  <script>
+    var socket = io();
+
+    var graphs = {};
+
+    socket.on('change', function(metric) {
+      if(!graphs[metric.name]) {
+        var $graph = $('<div style="display: inline-block">' +
+            '<div style="text-align: center">' + metric.name + '</div>' +
+            '<div class="epoch category10" style="width: 300px; height: 150px; display: inline-block; margin-left: 20px;"></div>' +
+          '</div>').appendTo(document.body);
+
+        graphs[metric.name] = $graph.find('.epoch').epoch({
+          type: 'time.area',
+          data: [{ label: metric.name, values: [] }],
+          axes: ['bottom', 'right']
+        });
+      }
+
+      graphs[metric.name].push([{ time: metric.time, y: metric.value }]);
+    });
+  </script>
+</body>

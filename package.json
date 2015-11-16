@@ -1,0 +1,18 @@
+{
+  "name": "rethink-udp-charts",
+  "version": "0.1.0",
+  "description": "Real-time charts using RethinkDB changefeeds.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Patrick Stadler <patrick.stadler@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "connect": "^3.4.0",
+    "rethinkdb": "^2.2.0",
+    "serve-static": "^1.10.0",
+    "socket.io": "^1.3.7"
+  }
+}
