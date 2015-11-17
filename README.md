@@ -13,7 +13,7 @@ $ rethinkdb
 
 ## Usage
 
-```
+```bash
 $ npm start
 # Open http://localhost:8080 in a browser
 
