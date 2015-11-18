@@ -4,7 +4,7 @@
   "description": "Real-time charts using RethinkDB changefeeds.",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
+    "start": "node --harmony index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Patrick Stadler <patrick.stadler@gmail.com>",
